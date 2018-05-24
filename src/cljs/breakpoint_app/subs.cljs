@@ -11,3 +11,8 @@
   :background-color
   (fn [db]
     (:background-color db)))
+
+(reg-sub
+  :images
+  (fn [db]
+    (:images db)))

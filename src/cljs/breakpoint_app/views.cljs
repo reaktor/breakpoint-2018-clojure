@@ -15,7 +15,8 @@
    [:img {:src (:url image)}]])
 
 (defn- results-box []
-  [:div.results-box])
+  [:div.results-box
+   (map results-item @(subscribe [:images]))])
 
 (defn animation-toggle []
   [:button.animation-toggle
@@ -46,7 +47,7 @@
        :on-change   #(println "input changed" (.-value (.-target %)))}]]
     [:div.input-container
      [:button.random-button
-      {:on-click #(println "click")}
+      {:on-click #(dispatch [:load-random])}
       "Load random!"]]
     [results-box]]
    [aw/animation-header :footer]
