@@ -6,3 +6,8 @@
   :animation-enabled?
   (fn [db]
     (:animation/enabled? db)))
+
+(reg-sub
+  :background-color
+  (fn [db]
+    (:background-color db)))

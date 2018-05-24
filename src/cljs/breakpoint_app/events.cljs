@@ -14,6 +14,11 @@
   (fn [db _]
     (update db :animation/enabled? not)))
 
+(reg-event-db
+  :change-color
+  (fn [db [_ color]]
+    (assoc db :background-color color)))
+
 ;; ;Used in ex. 2:
 ;; (reg-event-fx
 ;;   :load-random

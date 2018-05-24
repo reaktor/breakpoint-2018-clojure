@@ -25,8 +25,16 @@
           "off"
           "on"))])
 
+(defn color-change []
+  [:button.animation-toggle
+   {:on-click (fn [evt] (dispatch [:change-color :black]))}
+   "Change color!"])
+
 (defn main-panel []
   [:div.main-wrapper
+   {:class
+    (when (= @(subscribe [:background-color]) :black)
+      "black-background")}
    [aw/animation-header :header]
    [:div.main
     [:h1 "Breakpoint Giphy"]
@@ -44,4 +52,5 @@
    [aw/animation-header :footer]
    [:div.toggle-button-container
     [animation-toggle]
+    [color-change]
     ]])
