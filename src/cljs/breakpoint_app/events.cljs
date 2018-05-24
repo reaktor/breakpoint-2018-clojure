@@ -9,6 +9,11 @@
  (fn [_ _]
    db/default-db))
 
+(reg-event-db
+  :toggle-animation
+  (fn [db _]
+    (update db :animation/enabled? not)))
+
 ;; ;Used in ex. 2:
 ;; (reg-event-fx
 ;;   :load-random

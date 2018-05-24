@@ -18,7 +18,12 @@
   [:div.results-box])
 
 (defn animation-toggle []
-  [:button.animation-toggle])
+  [:button.animation-toggle
+   {:on-click (fn [evt] (dispatch [:toggle-animation]))}
+   (str "Toggle animation "
+        (if @(subscribe [:animation-enabled?])
+          "off"
+          "on"))])
 
 (defn main-panel []
   [:div.main-wrapper
@@ -38,5 +43,5 @@
     [results-box]]
    [aw/animation-header :footer]
    [:div.toggle-button-container
-    ;[animation-toggle]
+    [animation-toggle]
     ]])
